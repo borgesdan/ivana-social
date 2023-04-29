@@ -63,6 +63,12 @@
         <Setter Property="Background" Value="{StaticResource Color4}" />        
         <Setter Property="BorderThickness" Value="0" />
     </Style>
+    <Style BasedOn="{StaticResource BaseButton }" TargetType="Button" x:Key="ToolBarButton2">
+        <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+        <Setter Property="Foreground" Value="{StaticResource Color5}" />
+        <Setter Property="Background" Value="{StaticResource Color1}" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
 
     <Style BasedOn="{StaticResource {x:Type Label}}" TargetType="Label" x:Key="TitleLabel">
         <Setter Property="FontSize" Value="{StaticResource LargeSize}" />

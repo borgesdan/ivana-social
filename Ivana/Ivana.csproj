@@ -5,12 +5,18 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <Authors>Danilo Borges Santos</Authors>
+    <Company>Danilo Borges Santos</Company>
+    <Description>Aplicativo desktop em C#, WPF e SQLite para a cliente Ivana Reis, com o objetivo de gerenciamento de atendimento social.</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Content\adicionar.png" />
     <None Remove="Content\atendimento.docx" />
+    <None Remove="Content\backup.png" />
     <None Remove="Content\camada-mais.png" />
+    <None Remove="Content\download.png" />
     <None Remove="Content\imprimir.png" />
     <None Remove="Content\procurar.png" />
   </ItemGroup>
@@ -22,7 +28,13 @@
     <Content Include="Content\atendimento.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\backup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\camada-mais.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\download.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\imprimir.png">
@@ -31,6 +43,7 @@
     <Content Include="Content\procurar.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="logo.ico" />
   </ItemGroup>
 
   <ItemGroup>

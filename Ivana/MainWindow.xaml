@@ -23,15 +23,33 @@
         </Grid.RowDefinitions>
 
         <ToolBar Grid.Row="0">
-            <Button x:Name="AddDemand" Width="60" VerticalAlignment="Stretch" Click="AddDemand_Click" Style="{StaticResource ToolBarButton }">
+            <Button x:Name="AddDemand" Width="60" VerticalAlignment="Stretch" Click="AddDemand_Click" ToolTip="Adicionar Demanda" Style="{StaticResource ToolBarButton }">
                 <Button.Content>
                     <Image Source="/Content/adicionar.png" Margin="5" />
                 </Button.Content>
             </Button>
             <Separator Margin="5 0" />
-            <Button x:Name="Search" Width="60" VerticalAlignment="Stretch" Click="Search_Click" Style="{StaticResource ToolBarButton }">
+            <Button x:Name="Search" Width="60" VerticalAlignment="Stretch" Click="Search_Click" ToolTip="Buscar" Style="{StaticResource ToolBarButton }">
                 <Button.Content>
                     <Image Source="/Content/procurar.png" Margin="5" />
+                </Button.Content>
+            </Button>
+            <Separator Margin="20 0" />
+            <Button x:Name="Backup" Width="60" VerticalAlignment="Stretch" Click="Backup_Click" ToolTip="Fazer Backup" Style="{StaticResource ToolBarButton2 }">                
+                <Button.Content>
+                    <StackPanel>
+                        <Image Source="/Content/backup.png" Margin="0" Width="30" Height="30" />
+                        <Label Content="Backup" FontWeight="Normal" FontSize="{StaticResource MinSize}"/>
+                    </StackPanel>                    
+                </Button.Content>
+            </Button>
+            <Separator Margin="5 0" />
+            <Button x:Name="Restore" Width="60" VerticalAlignment="Stretch" Click="Restore_Click" ToolTip="Recuperar Backup" Style="{StaticResource ToolBarButton2 }">
+                <Button.Content>
+                    <StackPanel>
+                        <Image Source="/Content/download.png" Margin="0" Width="30" Height="30" />
+                        <Label Content="Recuperar" FontWeight="Normal" FontSize="{StaticResource MinSize}"/>
+                    </StackPanel>
                 </Button.Content>
             </Button>
         </ToolBar>
