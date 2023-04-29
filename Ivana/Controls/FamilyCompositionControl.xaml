@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Ivana.Controls.FamilyCompositionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ivana.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Dictionaries/Default.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Nome">
+            <TextBox x:Name="FullName" Style="{StaticResource DefaultTextBox}" MaxLength="{StaticResource FullNameMaxLength}" />
+        </GroupBox>
+        <GroupBox Header="Parentesco" Grid.Column="1">
+            <ComboBox x:Name="Relationship" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                <ComboBoxItem Content="1 - Cônjuge" />
+                <ComboBoxItem Content="2 - Filho" />
+                <ComboBoxItem Content="3 - Enteado" />
+                <ComboBoxItem Content="4 - Neto ouBisneto" />
+                <ComboBoxItem Content="5 - Pai ou Mãe" />
+                <ComboBoxItem Content="6 - Sogro" />
+                <ComboBoxItem Content="7 - Irmão" />
+                <ComboBoxItem Content="8 - Genro ou Nora" />
+                <ComboBoxItem Content="9 - Outro Parente" />
+                <ComboBoxItem Content="10 - Não Parente" />
+            </ComboBox>
+        </GroupBox>
+        <GroupBox Header="Nascimento" Grid.Column="2">
+            <DatePicker x:Name="BirthDate" />
+        </GroupBox>
+        <GroupBox Header="Escolaridade" Grid.Column="3">
+            <ComboBox x:Name="Education" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                <ComboBoxItem Content="1 - Creche" />
+                <ComboBoxItem Content="2 - Ensino Fundamental I" />
+                <ComboBoxItem Content="3 - Ensino Fundamental II" />                
+                <ComboBoxItem Content="4 - Ensino Médio" />
+                <ComboBoxItem Content="5 - Superior Incompleto" />
+                <ComboBoxItem Content="6 - Superior Completo" />
+                <ComboBoxItem Content="7 - Não Alfabetizado" />
+            </ComboBox>
+        </GroupBox>
+        <GroupBox Header="Sexo" Grid.Column="4">
+            <ComboBox x:Name="Gender" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                <ComboBoxItem Content="F" />
+                <ComboBoxItem Content="M" />
+            </ComboBox>
+        </GroupBox>
+        <GroupBox Header="Obs." Grid.Column="5">
+            <TextBox x:Name="Observations" Style="{StaticResource DefaultTextBox}" MaxLength="{StaticResource ObservationsLength}" />
+        </GroupBox>
+        <Button x:Name="Remove" Content="X" Background="Red" Grid.Column="6" Style="{StaticResource DefaultButton}" Click="Remove_Click" />
+    </Grid>    
+</UserControl>

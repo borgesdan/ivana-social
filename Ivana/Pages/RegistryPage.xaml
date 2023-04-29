@@ -1,0 +1,603 @@
+﻿<Page x:Class="Ivana.Pages.RegistryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ivana.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="2000" d:DesignWidth="800" Loaded="Page_Loaded" Unloaded="Page_Unloaded"
+      Title="RegistryPage">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>                
+                <ResourceDictionary Source="../Dictionaries/Default.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <StackPanel Background="White" x:Name="MainPanel">
+        <Button
+            x:Name="Print"
+            Width="50"
+            HorizontalAlignment="Left"
+            Margin="10"
+            Click="Print_Click"
+            Background="{StaticResource Color1}"
+            Style="{StaticResource DefaultButton}"
+            >
+            <Button.Content>
+                <Image Source="/Content/imprimir.png" Margin="5" />
+            </Button.Content>
+        </Button>
+        
+        <GroupBox Header="Situação" Width="250" HorizontalAlignment="Right">
+            <ComboBox x:Name="DemandSituation" SelectedIndex="0" Width="200" Height="30" Style="{StaticResource DefaultComboBox}">
+                <ComboBoxItem Content="Em acompanhamento" />
+                <ComboBoxItem Content="Finalizado" />
+                <ComboBoxItem Content="Cancelado" />
+            </ComboBox>
+        </GroupBox>        
+        <Label 
+            Content="ATENDIMENTO"
+            Style="{StaticResource TitleLabel}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <GroupBox 
+                Header="Local de Atendimento"
+                Grid.ColumnSpan="9">
+                <TextBox 
+                    x:Name="ServiceLocal"
+                    MaxLength="{StaticResource FullNameMaxLength}"
+                    Style="{StaticResource DefaultTextBox}"/>
+            </GroupBox>
+            <GroupBox 
+                Header="Nº"
+                Grid.Column="9">
+                <TextBox 
+                    x:Name="ServiceNumber"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="8" />
+            </GroupBox>
+            <GroupBox
+                Header="Data"
+                Grid.Column="10"
+                Grid.ColumnSpan="2">
+                <DatePicker x:Name="ServiceDate"/>
+            </GroupBox>
+
+        </Grid>
+        <Label 
+            Content="IDENTIFICAÇÃO"
+            Style="{StaticResource TitleLabel}"
+            />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <GroupBox 
+                Header="Nome"
+                Grid.ColumnSpan="11">
+                <TextBox 
+                    x:Name="PatientName" 
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource FullNameMaxLength}" />
+            </GroupBox>
+            <GroupBox Header="Sexo" Grid.Column="11">
+                <ComboBox x:Name="PatientGender" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                    <ComboBoxItem Tag="0" Content="1 - F" />
+                    <ComboBoxItem Tag="1" Content="2 - M" />
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Nome Social"
+                      Grid.Row="2" Grid.ColumnSpan="10">
+                <TextBox 
+                    x:Name="PatientSocialName"
+                    Style="{StaticResource DefaultTextBox}"
+                     MaxLength="{StaticResource FullNameMaxLength}"/>
+            </GroupBox>
+            <GroupBox Header="Telefone"
+                      Grid.Row="2" Grid.Column="10" Grid.ColumnSpan="2">
+                <TextBox 
+                    x:Name="PatientPhone"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource PhoneWithMaskLength}"/>
+            </GroupBox>
+            <GroupBox Header="Data de Nascimento"
+                      Grid.Row="4" Grid.ColumnSpan="2">
+                <DatePicker x:Name="PatientBirthDate" />
+            </GroupBox>
+            <GroupBox Header="Idade"
+                      Grid.Row="4" Grid.Column="2">
+                <TextBox x:Name="PatientAge" IsReadOnly="True" BorderThickness="0" Style="{StaticResource DefaultTextBox}" />
+            </GroupBox>
+            <GroupBox Header="Local"
+                      Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="5">
+                <TextBox 
+                    x:Name="PatientBirthLocal"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource FullNameMaxLength}"/>
+            </GroupBox>
+            <GroupBox Header="CPF"
+                      Grid.Row="4" Grid.Column="8" Grid.ColumnSpan="2">
+                <TextBox 
+                    x:Name="PatientCPF"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource CPFLengthWithMask}"/>
+            </GroupBox>
+            <GroupBox Header="RG"
+                      Grid.Row="4" Grid.Column="10" Grid.ColumnSpan="2">
+                <TextBox 
+                    x:Name="PatientRG"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource RGLength}"/>
+            </GroupBox>
+            <GroupBox Header="Escolaridade"
+                      Grid.Row="6" Grid.ColumnSpan="2">
+                <TextBox 
+                    x:Name="PatientEducation"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource FullNameMediumLength}"/>
+            </GroupBox>
+            <GroupBox Header="Rua"
+                      Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="6">
+                <TextBox 
+                    x:Name="PatientAddressStreet"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource FullNameMaxLength}"/>
+            </GroupBox>
+            <GroupBox Header="Nº"
+                      Grid.Row="6" Grid.Column="8">
+                <TextBox
+                    x:Name="PatientAddressNumber"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="8"/>
+            </GroupBox>
+            <GroupBox Header="Bairro"
+                      Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="3">
+                <TextBox 
+                    x:Name="PatientAddressDistrict"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource FullNameMediumLength}"
+                    />
+            </GroupBox>
+            <GroupBox Header="Ponto de Referência"
+                      Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="12">
+                <TextBox
+                    x:Name="PatientAddressReference"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource FullNameMaxLength}" />
+            </GroupBox>
+            <GroupBox Header="Estado Civil"
+                      Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2">
+                <ComboBox x:Name="PatientCivilState" SelectedIndex="0">
+                    <ComboBoxItem Tag="0" Content="1 - Solteiro" />
+                    <ComboBoxItem Tag="1" Content="2 - Casado" />
+                    <ComboBoxItem Tag="2" Content="3 - Divorciado" />
+                    <ComboBoxItem Tag="3" Content="4 - Viúvo" />
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Vínculo"
+                      Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="3">
+                <ComboBox x:Name="PatientRelationship" SelectedIndex="0">
+                    <ComboBoxItem Content="1 - Pontual" />
+                    <ComboBoxItem Content="2 - Benefício Eventual" />
+                    <ComboBoxItem Content="3 - Promart" />
+                    <ComboBoxItem Content="4 - João de Barro" />
+                    <ComboBoxItem Content="5 - Viver melhor" />
+                </ComboBox>
+            </GroupBox>
+        </Grid>
+        <Label 
+            Content="COMPOSIÇÃO FAMILIAR" 
+            Style="{StaticResource TitleLabel}" />
+        <StackPanel>
+            <StackPanel x:Name="FamilyComposition">                
+            </StackPanel>
+            <Button 
+                x:Name="AddFamilyComposition"
+                Grid.Column="11" Grid.Row="2"
+                Height="50"                
+                Width="100"
+                Margin="0 10 0 0"
+                HorizontalAlignment="Right"
+                Click="AddFamilyComposition_Click"
+                ToolTip="Adicionar Composição Familiar"
+                Style="{StaticResource DefaultButton}">
+                <Button.Content>
+                    <Image Source="/Content/camada-mais.png" Margin="5" />
+                </Button.Content>
+            </Button>
+        </StackPanel>        
+        <Label 
+            Content="SITUAÇÃO HABITACIONAL"
+            Style="{StaticResource TitleLabel}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition  />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Tipo de Construção"
+                      Grid.Row="00" Grid.Column="0" Grid.ColumnSpan="2">
+                <ComboBox x:Name="ResidenceType" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                    <ComboBoxItem Content="1 - Alvenaria" />
+                    <ComboBoxItem Content="2 - Madeira" />
+                    <ComboBoxItem Content="3 - Mista" />
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Nº de Cômodos"
+                      Grid.Row="00" Grid.Column="2" Grid.ColumnSpan="2">
+                <TextBox 
+                    x:Name="RoomsNumber"
+                    MaxLength="2"
+                    Style="{StaticResource DefaultTextBox}"/>
+            </GroupBox>
+            <GroupBox Header="Moradia"
+                      Grid.Row="00" Grid.Column="4" Grid.ColumnSpan="2">
+                <ComboBox 
+                    x:Name="ResidenceStatus"
+                    SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                    <ComboBoxItem Content="1 - Própria" />
+                    <ComboBoxItem Content="2 - Alugada" />
+                    <ComboBoxItem Content="3 - Cedida" />
+                    <ComboBoxItem Content="4 - Ocupada" />
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Valor Aluguel (R$)"
+                      Grid.Row="00" Grid.Column="6" Grid.ColumnSpan="2">
+                <TextBox
+                    x:Name="RentAmount"
+                    Style="{StaticResource DefaultTextBox}" />
+            </GroupBox>
+            <GroupBox Header="Tempo de moradia no município"
+                      Grid.Row="00" Grid.Column="8" Grid.ColumnSpan="4">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox 
+                        x:Name="ResidenceYears"
+                        Width="50" 
+                        MaxLength="2"
+                        Style="{StaticResource DefaultTextBox}" />
+                    <Label Content="anos" />
+                    <TextBox  
+                        x:Name="ResidenceMonths"
+                        Width="50" 
+                        MaxLength="2"
+                        Style="{StaticResource DefaultTextBox}" />
+                    <Label Content="meses" />
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+        <Label 
+            Content="SITUAÇÃO SÓCIOECONÔMICA" 
+            Style="{StaticResource TitleLabel}"/>
+        <StackPanel>
+            <StackPanel x:Name="EconomicSituation">                
+            </StackPanel>
+            <Button 
+                x:Name="AddEconomicSituation"                
+                Grid.Column="11" Grid.Row="2"
+                Height="50"
+                Width="100"
+                Margin="0 10 0 0"
+                HorizontalAlignment="Right"
+                Click="AddEconomicSituation_Click"
+                ToolTip="Adicionar uma Situação Econômica"
+                Style="{StaticResource DefaultButton}">
+                <Button.Content>
+                    <Image Source="/Content/camada-mais.png" Margin="5" />
+                </Button.Content>
+            </Button>
+        </StackPanel>        
+        <Label 
+            Content="SAÚDE"
+            Style="{StaticResource TitleLabel}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Possui Assistência Médica?"
+                      Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                <ComboBox 
+                    x:Name="HasMedicalAssistance"
+                    SelectedIndex="0">
+                    <ComboBoxItem Content="1 - Não possui" />
+                    <ComboBoxItem Content="2 - SUS" />
+                    <ComboBoxItem Content="3 - Privado" />
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Nome da UBS em que recebe atendimento"
+                      Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="9">
+                <TextBox
+                    x:Name="UBSName"
+                    Style="{StaticResource DefaultTextBox}"
+                    MaxLength="{StaticResource FullNameMaxLength}"/>
+            </GroupBox>
+            <GroupBox                 
+                Header="Possui gastos com medicamentos de uso regular?"
+                Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5">
+                <StackPanel
+                    Orientation="Horizontal">
+                    <Label Content="Valor R$:" />
+                    <TextBox
+                        x:Name="MedicineAmount"
+                        Style="{StaticResource DefaultTextBox}"
+                        MaxLength="8"
+                        Width="150" />
+                </StackPanel>               
+            </GroupBox>
+            <GroupBox
+                Header="Tem pessoas com deficiência ou transtorno/doença mental?"
+                Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Nome:" />
+                    <TextBox
+                        x:Name="FamilyDependent"
+                        Grid.Column="1"
+                        Style="{StaticResource DefaultTextBox}"
+                        MaxLength="{StaticResource FullNameMaxLength}" />
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Tipo"
+                      Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="12">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"/>                        
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    
+                    <ComboBox
+                        x:Name="DisabledPersonType"
+                        SelectedIndex="0">
+                        <ComboBoxItem Content="1 - Cegueira" />
+                        <ComboBoxItem Content="2 - Baixa Visão" />
+                        <ComboBoxItem Content="3 - Surdez Severa/Profunda" />
+                        <ComboBoxItem Content="4 - Surdez Leve/Moderada" />
+                        <ComboBoxItem Content="5 - Deficiência Física" />
+                        <ComboBoxItem Content="6 - Deficiência Mental ou Intelectual" />
+                        <ComboBoxItem Content="7 - Síndrome de Down" />
+                        <ComboBoxItem Content="8 - Transtorno/Doença Mental" />
+                        <ComboBoxItem Content="9 - Outros" />
+                    </ComboBox>                    
+                    <TextBox
+                        x:Name="DisabledPersonDescription"
+                        Style="{StaticResource DefaultTextBox}"
+                        MaxLength="{StaticResource FullNameMediumLength}"
+                        Grid.Column="1" />
+                </Grid>                
+            </GroupBox>
+        </Grid>
+        <Label 
+            Content="PARTICIPAÇÃO EM PROGRAMAS, PROJETOS E SERVIÇOS"  
+            Style="{StaticResource TitleLabel}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Participação em Programa de Transferência de Renda?"
+                      Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12">
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox 
+                        x:Name="IsBolsaFamilia"
+                        Content="Programa Bolsa Família" Margin="10 0" VerticalContentAlignment="Center"  />                    
+                    <TextBox 
+                        x:Name="BolsaFamiliaValue"
+                        Width="150"
+                        MaxLength="8"
+                        Style="{StaticResource DefaultTextBox}"/>
+                    <CheckBox                        
+                        x:Name="IsBPC"
+                        Content="BPC - PCD/Idoso" Margin="10 0" VerticalContentAlignment="Center" />
+                    <CheckBox
+                        x:Name="HasAnotherAssistanceType"
+                        Content="Outros" Margin="10 0" VerticalContentAlignment="Center" />
+                    <TextBox 
+                        x:Name="AnotherAssistanceDescription"
+                        Width="200" 
+                        MaxLength="{StaticResource FullNameMediumLength}"
+                        Style="{StaticResource DefaultTextBox}"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Beneficio eventual cesta básica/ CRAS"
+                      Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
+                <ComboBox 
+                    x:Name="IsCRASAssistance"
+                    SelectedIndex="1"  Style="{StaticResource DefaultComboBox}">
+                    <ComboBoxItem Content="1 - SIM" />
+                    <ComboBoxItem Content="2 - NÃO" />
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Participa de SCFV's"
+                      Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ComboBox 
+                        x:Name="IsSCFV"
+                        SelectedIndex="1"  Style="{StaticResource DefaultComboBox}">
+                        <ComboBoxItem Content="1 - SIM" />
+                        <ComboBoxItem Content="2 - NÃO" />
+                    </ComboBox>
+                    <TextBox
+                        x:Name="SCFVDescription"
+                        MaxLength="{StaticResource FullNameMediumLength}"
+                        Style="{StaticResource DefaultTextBox}"
+                        Grid.Column="1" />
+                </Grid>                
+            </GroupBox>
+            <GroupBox Header="Outros"
+                      Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="12">
+                <TextBox
+                    x:Name="OtherAssistenceProgram"                    
+                    MaxLength="{StaticResource FullNameMediumLength}"
+                    Style="{StaticResource DefaultTextBox}"
+                    />
+            </GroupBox>
+        </Grid>
+        <Label 
+            Content="FORMA DE INGRESSO NESTA UNIDADE" 
+            Style="{StaticResource TitleLabel}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Forma de Ingresso"
+                      Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+                <ComboBox x:Name="AdmissionStyle" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                    <ComboBoxItem Content="1 - Demanda Espontânea" />
+                    <ComboBoxItem Content="2 - Busca Ativa" />
+                    <ComboBoxItem Content="3 - Encaminhamento pelo CRAS ou CREAS" />
+                    <ComboBoxItem Content="4 - Encaminhamento pelo Conselho Tutelar" />
+                    <ComboBoxItem Content="5 - Indicação" />
+                    <ComboBoxItem Content="6 - Outros" />
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Descrição de outra forma"
+                      Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="8">
+                <TextBox
+                    x:Name="OtherAdmissionDescription"
+                    MaxLength="{StaticResource FullNameMediumLength}"
+                    Style="{StaticResource DefaultTextBox}"
+                    />
+            </GroupBox>
+        </Grid>        
+        <GroupBox Header="Demanda">
+            <TextBox 
+                x:Name="DemandsDescription"
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                MaxLength="1990"
+                Height="100" />
+        </GroupBox>
+        <GroupBox Header="Observações">
+            <TextBox
+                x:Name="Observations"
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                MaxLength="{StaticResource ObservationsLength}"
+                Height="200" />
+        </GroupBox>
+        <Button
+            x:Name="Apply"
+            Content="SALVAR"
+            Width="250"
+            Margin="0 20 0 200"
+            Click="Apply_Click"
+            Style="{StaticResource DefaultButton}"
+            />
+    </StackPanel>
+</Page>

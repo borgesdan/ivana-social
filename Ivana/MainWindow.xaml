@@ -1,0 +1,42 @@
+﻿<Window x:Class="Ivana.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ivana"
+        xmlns:pages="clr-namespace:Ivana.Pages"
+        mc:Ignorable="d"
+        Title="Ivana Social" Height="450" Width="800" WindowState="Maximized" MinWidth="1280">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/Default.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ToolBar Grid.Row="0">
+            <Button x:Name="AddDemand" Width="60" VerticalAlignment="Stretch" Click="AddDemand_Click" Style="{StaticResource ToolBarButton }">
+                <Button.Content>
+                    <Image Source="/Content/adicionar.png" Margin="5" />
+                </Button.Content>
+            </Button>
+            <Separator Margin="5 0" />
+            <Button x:Name="Search" Width="60" VerticalAlignment="Stretch" Click="Search_Click" Style="{StaticResource ToolBarButton }">
+                <Button.Content>
+                    <Image Source="/Content/procurar.png" Margin="5" />
+                </Button.Content>
+            </Button>
+        </ToolBar>
+        
+        <TabControl x:Name="MainContent" Grid.Row="1" SelectionChanged="MainContent_SelectionChanged">            
+        </TabControl>
+    </Grid>
+</Window>
