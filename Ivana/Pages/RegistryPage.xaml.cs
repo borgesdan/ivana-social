@@ -439,11 +439,11 @@ namespace Ivana.Pages
                 var pd = new PrintDialog();
                 pd.PrintDocument(document.DocumentPaginator, "Página de Atendimento");
 
-                MessageBox.Show("O arquivo PDF foi salvo para impressão!", "Tudo certo!", MessageBoxButton.OK);
+                MessageBox.Show("O arquivo PDF foi salvo para impressão!", "Tudo certo!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             catch
             {
-                MessageBox.Show("Ocorreu um erro ao criar o arquivo PDF", "Tudo errado!", MessageBoxButton.OK);
+                MessageBox.Show("Ocorreu um erro ao criar o arquivo PDF. Verifique se o arquivo já está aberto e tente novamente", "Tudo errado!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
