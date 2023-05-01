@@ -154,7 +154,7 @@
             </GroupBox>
             <GroupBox Header="Idade"
                       Grid.Row="4" Grid.Column="2">
-                <TextBox x:Name="PatientAge" IsReadOnly="True" BorderThickness="0" Style="{StaticResource DefaultTextBox}" />
+                <TextBox x:Name="PatientAge" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0" Style="{StaticResource DefaultTextBox}" />
             </GroupBox>
             <GroupBox Header="Local"
                       Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="5">

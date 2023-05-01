@@ -69,6 +69,8 @@ namespace Ivana.Pages
             RentAmount.ApplyDecimal();
             MedicineAmount.ApplyDecimal();
             BolsaFamiliaValue.ApplyDecimal();
+            PatientBirthDate.SelectedDateChanged += (object? sender, SelectionChangedEventArgs e) 
+                => PatientAge.Text = PatientBirthDate.SelectedDate.GetAge()?.ToString() ?? string.Empty;
 
             if (_entity != null)
             {
