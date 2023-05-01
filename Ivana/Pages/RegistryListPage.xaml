@@ -91,7 +91,7 @@
 
             <Button 
                 x:Name="Preview"
-                Content="&lt;&lt;"
+                Content="Anterior"
                 FontSize="{StaticResource SmallSize}"
                 Grid.ColumnSpan="2"
                 Margin="10 2"
@@ -99,7 +99,7 @@
                 Style="{StaticResource DefaultButtonNoHeight}" />
             <Button 
                 x:Name="Next" 
-                Content=">>"
+                Content="Próximo"
                 FontSize="{StaticResource SmallSize}"
                 Grid.Column="10"
                 Grid.ColumnSpan="2"

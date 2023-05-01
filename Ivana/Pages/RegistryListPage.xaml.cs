@@ -112,6 +112,8 @@ namespace Ivana.Pages
                 }
             }
 
+            Preview.IsEnabled = _page > 1;
+            Next.IsEnabled = (_page * _pageCount) < _total;
             PageNumber.Text = _page.ToString();
             Total.Text = _total.ToString();
         }
