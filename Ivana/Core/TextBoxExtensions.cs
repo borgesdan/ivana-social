@@ -1,10 +1,35 @@
 ﻿using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Ivana.Core
 {
     public static class TextBoxExtensions
     {
+        public static void ApplyDecimal(this TextBox textbox)
+        {
+            textbox.TextChanged += (object sender, TextChangedEventArgs e) =>
+            {
+                var currentText = textbox.Text.ApplyOnlyNumber();
+                
+                if(currentText.Length == 1)
+                {
+                    currentText = currentText.Insert(0, ",0");
+                }
+                else if(currentText.Length < 3)
+                {
+                    currentText = currentText.Insert(0, ",");
+                }
+                else
+                {
+                    currentText = currentText.Insert(currentText.Length - 2, ",");
+                }
+
+                _ = decimal.TryParse(currentText, out var value);
+                textbox.Text = value.ToString("C");
+                
+                textbox.CaretIndex = textbox.Text.Length;
+            };
+        }
+
         public static void ApplyCPFMask(this TextBox textbox)
         {
             textbox.TextChanged += (object sender, TextChangedEventArgs e) =>

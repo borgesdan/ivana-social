@@ -68,7 +68,7 @@ namespace Ivana.Data.Entities
         
         public bool IsBolsaFamilia { get; set; }
         [StringLength(8)]
-        public string? BolsaFamiliaValue { get; set; }
+        public decimal BolsaFamiliaValue { get; set; }
         public bool IsBPC { get; set; }
         public bool HasAnotherAssistanceType { get; set; }
         [StringLength(80)]

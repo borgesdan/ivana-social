@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Ivana"
         xmlns:pages="clr-namespace:Ivana.Pages"
         mc:Ignorable="d"
-        Title="Ivana Social" Height="450" Width="800" WindowState="Maximized" MinWidth="1280">
+        Title="Ivana Social" Height="720" Width="1280" WindowState="Maximized" MinWidth="1280">
     
     <Window.Resources>
         <ResourceDictionary>

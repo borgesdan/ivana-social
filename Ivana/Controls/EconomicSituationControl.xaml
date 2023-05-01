@@ -39,7 +39,10 @@
             </ComboBox>
         </GroupBox>
         <GroupBox Header="Valor da Renda (R$)" Grid.Column="2">
-            <TextBox x:Name="IncomeAmount"  Style="{StaticResource DefaultTextBox}" MaxLength="8" />
+            <TextBox 
+                x:Name="IncomeAmount"
+                Style="{StaticResource DefaultTextBox}"
+                MaxLength="{StaticResource DecimalFormatedLength}" />
         </GroupBox>
         <GroupBox Header="Obs." Grid.Column="3">
             <TextBox x:Name="Observations" Style="{StaticResource DefaultTextBox}" MaxLength="{StaticResource ObservationsLength}" />

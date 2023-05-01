@@ -481,10 +481,103 @@
                     </ComboBox>
                 </GroupBox>
             </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.7*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="Nome" Style="{StaticResource PrintGroupBox}">
+                    <TextBox x:Name="FullName11" Style="{StaticResource PrintTextBox}" MaxLength="{StaticResource FullNameMaxLength}" TextWrapping="Wrap" />
+                </GroupBox>
+                <GroupBox Header="Parentesco" Grid.Column="1" Style="{StaticResource PrintGroupBox}">
+                    <ComboBox x:Name="Relationship11" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                        <ComboBoxItem Content="Cônjuge" />
+                        <ComboBoxItem Content="Filho" />
+                        <ComboBoxItem Content="Enteado" />
+                        <ComboBoxItem Content="Neto ouBisneto" />
+                        <ComboBoxItem Content="Pai ou Mãe" />
+                        <ComboBoxItem Content="Sogro" />
+                        <ComboBoxItem Content="Irmão" />
+                        <ComboBoxItem Content="Genro ou Nora" />
+                        <ComboBoxItem Content="Outro Parente" />
+                        <ComboBoxItem Content="Não Parente" />
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Nascimento" Grid.Column="2" Style="{StaticResource PrintGroupBox}">
+                    <TextBox Style="{StaticResource PrintTextBox}" x:Name="BirthDate11" />
+                </GroupBox>
+                <GroupBox Header="Escolaridade" Grid.Column="3" Style="{StaticResource PrintGroupBox}">
+                    <ComboBox x:Name="Education11" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                        <ComboBoxItem Content="Creche" />
+                        <ComboBoxItem Content="Fundamental I" />
+                        <ComboBoxItem Content="Fundamental II" />
+                        <ComboBoxItem Content="Médio" />
+                        <ComboBoxItem Content="Sup. Incompleto" />
+                        <ComboBoxItem Content="Sup. Completo" />
+                        <ComboBoxItem Content="Não Alfabetizado" />
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Sexo" Grid.Column="4" Style="{StaticResource PrintGroupBox}">
+                    <ComboBox x:Name="Gender11" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                        <ComboBoxItem Content="F" />
+                        <ComboBoxItem Content="M" />
+                    </ComboBox>
+                </GroupBox>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.7*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="Nome" Style="{StaticResource PrintGroupBox}">
+                    <TextBox x:Name="FullName12" Style="{StaticResource PrintTextBox}" MaxLength="{StaticResource FullNameMaxLength}" TextWrapping="Wrap" />
+                </GroupBox>
+                <GroupBox Header="Parentesco" Grid.Column="1" Style="{StaticResource PrintGroupBox}">
+                    <ComboBox x:Name="Relationship12" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                        <ComboBoxItem Content="Cônjuge" />
+                        <ComboBoxItem Content="Filho" />
+                        <ComboBoxItem Content="Enteado" />
+                        <ComboBoxItem Content="Neto ouBisneto" />
+                        <ComboBoxItem Content="Pai ou Mãe" />
+                        <ComboBoxItem Content="Sogro" />
+                        <ComboBoxItem Content="Irmão" />
+                        <ComboBoxItem Content="Genro ou Nora" />
+                        <ComboBoxItem Content="Outro Parente" />
+                        <ComboBoxItem Content="Não Parente" />
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Nascimento" Grid.Column="2" Style="{StaticResource PrintGroupBox}">
+                    <TextBox Style="{StaticResource PrintTextBox}" x:Name="BirthDate12" />
+                </GroupBox>
+                <GroupBox Header="Escolaridade" Grid.Column="3" Style="{StaticResource PrintGroupBox}">
+                    <ComboBox x:Name="Education12" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                        <ComboBoxItem Content="Creche" />
+                        <ComboBoxItem Content="Fundamental I" />
+                        <ComboBoxItem Content="Fundamental II" />
+                        <ComboBoxItem Content="Médio" />
+                        <ComboBoxItem Content="Sup. Incompleto" />
+                        <ComboBoxItem Content="Sup. Completo" />
+                        <ComboBoxItem Content="Não Alfabetizado" />
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Header="Sexo" Grid.Column="4" Style="{StaticResource PrintGroupBox}">
+                    <ComboBox x:Name="Gender12" SelectedIndex="0" Style="{StaticResource DefaultComboBox}">
+                        <ComboBoxItem Content="F" />
+                        <ComboBoxItem Content="M" />
+                    </ComboBox>
+                </GroupBox>
+            </Grid>
+            
             <TextBlock HorizontalAlignment="Center" Margin="0 20 0 0">
                 <Run FontWeight="Bold" FontSize="{StaticResource MediumSize}">SITUAÇÃO SÓCIOECONÔMICA</Run>
             </TextBlock>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -507,11 +600,11 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount1"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount1"  Style="{StaticResource PrintTextBox}" />
                 </GroupBox>                
 
             </Grid>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -534,11 +627,11 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount2"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount2"  Style="{StaticResource PrintTextBox}"  />
                 </GroupBox>
 
             </Grid>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -561,11 +654,11 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount3"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount3"  Style="{StaticResource PrintTextBox}"  />
                 </GroupBox>
 
             </Grid>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -588,11 +681,11 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount4"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount4"  Style="{StaticResource PrintTextBox}"  />
                 </GroupBox>
 
             </Grid>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -615,11 +708,11 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount5"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount5"  Style="{StaticResource PrintTextBox}"  />
                 </GroupBox>
 
             </Grid>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -642,11 +735,11 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount6"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount6"  Style="{StaticResource PrintTextBox}"  />
                 </GroupBox>
 
             </Grid>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -669,11 +762,11 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount7"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount7"  Style="{StaticResource PrintTextBox}"  />
                 </GroupBox>
 
             </Grid>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -696,11 +789,11 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount8"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount8"  Style="{StaticResource PrintTextBox}"  />
                 </GroupBox>
 
             </Grid>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -723,11 +816,11 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount9"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount9"  Style="{StaticResource PrintTextBox}"  />
                 </GroupBox>
 
             </Grid>
-            <Grid Background="White">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
@@ -750,7 +843,61 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
-                    <TextBox x:Name="IncomeAmount10"  Style="{StaticResource PrintTextBox}" MaxLength="8" />
+                    <TextBox x:Name="IncomeAmount10"  Style="{StaticResource PrintTextBox}"  />
+                </GroupBox>
+
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <GroupBox Style="{StaticResource PrintGroupBox}" Header="Nome">
+                    <TextBox x:Name="EcnomicFullName11" Style="{StaticResource PrintTextBox}" MaxLength="{StaticResource FullNameMaxLength}" />
+                </GroupBox>
+                <GroupBox Style="{StaticResource PrintGroupBox}" Header="Renda" Grid.Column="1">
+                    <ComboBox x:Name="Income11" SelectedIndex="0">
+                        <ComboBoxItem Content="1 - Registrado" />
+                        <ComboBoxItem Content="2 - BPC" />
+                        <ComboBoxItem Content="3 - BPC - Idoso" />
+                        <ComboBoxItem Content="4 - Aposentadoria" />
+                        <ComboBoxItem Content="5 - Seguro Desemprego" />
+                        <ComboBoxItem Content="6 - Pensão / Pensão Alimentícia" />
+                        <ComboBoxItem Content="7 - Trabalhador Autônomo" />
+                        <ComboBoxItem Content="8 - Proprietário de empresa" />
+                        <ComboBoxItem Content="9 - Outro" />
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
+                    <TextBox x:Name="IncomeAmount11"  Style="{StaticResource PrintTextBox}"  />
+                </GroupBox>
+
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <GroupBox Style="{StaticResource PrintGroupBox}" Header="Nome">
+                    <TextBox x:Name="EcnomicFullName12" Style="{StaticResource PrintTextBox}" MaxLength="{StaticResource FullNameMaxLength}" />
+                </GroupBox>
+                <GroupBox Style="{StaticResource PrintGroupBox}" Header="Renda" Grid.Column="1">
+                    <ComboBox x:Name="Income12" SelectedIndex="0">
+                        <ComboBoxItem Content="1 - Registrado" />
+                        <ComboBoxItem Content="2 - BPC" />
+                        <ComboBoxItem Content="3 - BPC - Idoso" />
+                        <ComboBoxItem Content="4 - Aposentadoria" />
+                        <ComboBoxItem Content="5 - Seguro Desemprego" />
+                        <ComboBoxItem Content="6 - Pensão / Pensão Alimentícia" />
+                        <ComboBoxItem Content="7 - Trabalhador Autônomo" />
+                        <ComboBoxItem Content="8 - Proprietário de empresa" />
+                        <ComboBoxItem Content="9 - Outro" />
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Style="{StaticResource PrintGroupBox}" Header="Valor da Renda (R$)" Grid.Column="2">
+                    <TextBox x:Name="IncomeAmount12"  Style="{StaticResource PrintTextBox}"  />
                 </GroupBox>
 
             </Grid>

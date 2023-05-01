@@ -13,6 +13,7 @@
     <System:Int32 x:Key="EmailLength">100</System:Int32>
     <System:Int32 x:Key="ObservationsLength">4990</System:Int32>
     <System:Int32 x:Key="AgeLength">3</System:Int32>
+    <System:Int32 x:Key="DecimalFormatedLength">11</System:Int32>
 
     <System:Double x:Key="DefaultSize">16</System:Double>
     <System:Double x:Key="LargeSize">20</System:Double>

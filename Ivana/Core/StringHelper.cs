@@ -102,7 +102,7 @@ namespace Ivana.Core
             return builder.ToString();
         }
 
-        public static string ApplyOnlyNumberOrChars(this string? text, char[] selectedChars)
+        public static string ApplyOnlyNumberOrChars(this string? text, params char[] selectedChars)
         {
             if (string.IsNullOrWhiteSpace(text))
                 return string.Empty;

@@ -1,19 +1,8 @@
-﻿using Ivana.Data;
+﻿using Ivana.Core;
+using Ivana.Data;
 using Ivana.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Ivana.Controls
 {
@@ -29,16 +18,18 @@ namespace Ivana.Controls
         public EconomicSituationControl()
         {
             InitializeComponent();
+            IncomeAmount.ApplyDecimal();
         }
 
         public EconomicSituationControl(EconomicSituationEntity entity)
         {
             InitializeComponent();
+            IncomeAmount.ApplyDecimal();
 
             id = entity.Id;
             FullName.Text = entity.Name;
             Income.SelectedIndex = (int)entity.Income;
-            IncomeAmount.Text = entity.IncomeAmount.ToString();
+            IncomeAmount.Text = entity.IncomeAmount.ToString("C");
             Observations.Text = entity.Observations;
         }
 
@@ -49,7 +40,7 @@ namespace Ivana.Controls
                 Id = id,
                 Name = FullName.Text,
                 Income = (EconomicSituationIncomeType)Income.SelectedIndex,
-                IncomeAmount = decimal.TryParse(IncomeAmount.Text, out decimal income) ? income : 0,
+                IncomeAmount = decimal.TryParse(IncomeAmount.Text.ApplyOnlyNumberOrChars(','), out decimal income) ? income : 0,
                 Observations = Observations.Text
             };
         }

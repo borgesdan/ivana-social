@@ -66,6 +66,9 @@ namespace Ivana.Pages
             RoomsNumber.ApplyOnlyNumbers();
             ResidenceYears.ApplyOnlyNumbers();
             ResidenceMonths.ApplyOnlyNumbers();
+            RentAmount.ApplyDecimal();
+            MedicineAmount.ApplyDecimal();
+            BolsaFamiliaValue.ApplyDecimal();
 
             if (_entity != null)
             {
@@ -91,16 +94,18 @@ namespace Ivana.Pages
                 ResidenceType.SelectedIndex = (int)_entity.ResidenceType;
                 RoomsNumber.Text = _entity.RoomsNumber.ToString();
                 ResidenceStatus.SelectedIndex = (int)_entity.ResidenceStatus;
-                RentAmount.Text = _entity.RentAmount.ToString();
+                RentAmount.Text = _entity.RentAmount.ToString("C");
                 ResidenceYears.Text = _entity.ResidenceYears.ToString();
                 ResidenceMonths.Text = _entity.ResidenceMonths.ToString();
                 HasMedicalAssistance.SelectedIndex = (int)_entity.MedicalAssistance;
                 UBSName.Text = _entity.UBSName;
-                MedicineAmount.Text = _entity.MedicineAmount.ToString();
+                MedicineAmount.Text = _entity.MedicineAmount.ToString("C");
                 FamilyDependent.Text = _entity.FamilyDependent;
                 DisabledPersonType.SelectedIndex = (int)_entity.DisabledPersonType;
                 DisabledPersonDescription.Text = _entity.DisabledPersonDescription;
                 IsBolsaFamilia.IsChecked = _entity.IsBolsaFamilia;
+                BolsaFamiliaValue.Text = _entity.BolsaFamiliaValue.ToString("C");
+                IsBPC.IsChecked = _entity.IsBPC;
                 HasAnotherAssistanceType.IsChecked = _entity.HasAnotherAssistanceType;
                 IsSCFV.SelectedIndex = _entity.IsSCFV ? 0 : 1;
                 SCFVDescription.Text = _entity.SCFVDescription;
@@ -139,7 +144,7 @@ namespace Ivana.Pages
             {
                 if (v != null && v is TextBox tx)
                     tx.Text.Trim();
-            });
+            });            
 
             if (string.IsNullOrWhiteSpace(PatientName.Text))
             {
@@ -190,16 +195,18 @@ namespace Ivana.Pages
             _entity.ResidenceType = (PatientResidenceType)ResidenceType.SelectedIndex;
             _entity.RoomsNumber = int.TryParse(RoomsNumber.Text.ApplyOnlyNumber(), out int rooms) ? rooms : 0;
             _entity.ResidenceStatus = (PatientResidenceStatusType)ResidenceStatus.SelectedIndex;
-            _entity.RentAmount = decimal.TryParse(RentAmount.Text, out decimal rent) ? rent : 0;
+            _entity.RentAmount = decimal.TryParse(RentAmount.Text.ApplyOnlyNumberOrChars(','), out decimal rent) ? rent : 0;
             _entity.ResidenceYears = int.TryParse(ResidenceYears.Text.ApplyOnlyNumber(), out int years) ? years : 0;
             _entity.ResidenceMonths = int.TryParse(ResidenceMonths.Text.ApplyOnlyNumber(), out int months) ? months : 0;
             _entity.MedicalAssistance = (PatientMedicalAssistanceType)HasMedicalAssistance.SelectedIndex;
             _entity.UBSName = UBSName.Text;
-            _entity.MedicineAmount = decimal.TryParse(MedicineAmount.Text, out decimal medicine) ? medicine : 0;
+            _entity.MedicineAmount = decimal.TryParse(MedicineAmount.Text.ApplyOnlyNumberOrChars(','), out decimal medicine) ? medicine : 0;
             _entity.FamilyDependent = FamilyDependent.Text;
             _entity.DisabledPersonType = (PatientDisabledPersonType)DisabledPersonType.SelectedIndex;
             _entity.DisabledPersonDescription = DisabledPersonDescription.Text;
             _entity.IsBolsaFamilia = IsBolsaFamilia.IsChecked == true;
+            _entity.BolsaFamiliaValue = decimal.TryParse(BolsaFamiliaValue.Text.ApplyOnlyNumberOrChars(','), out decimal bolsaValue) ? bolsaValue : 0;
+            _entity.IsBPC = IsBPC.IsChecked == true;
             _entity.HasAnotherAssistanceType = HasAnotherAssistanceType.IsChecked == true;
             _entity.IsSCFV = IsSCFV.SelectedIndex == 0;
             _entity.SCFVDescription = SCFVDescription.Text;
@@ -427,8 +434,17 @@ namespace Ivana.Pages
             ((IAddChild)pageContent2).AddChild(fixedPage2);
             document.Pages.Add(pageContent2);
 
-            var pd = new PrintDialog();
-            pd.PrintDocument(document.DocumentPaginator, "Página de Atendimento");
+            try
+            {
+                var pd = new PrintDialog();
+                pd.PrintDocument(document.DocumentPaginator, "Página de Atendimento");
+
+                MessageBox.Show("O arquivo PDF foi salvo para impressão!", "Tudo certo!", MessageBoxButton.OK);
+            }
+            catch
+            {
+                MessageBox.Show("Ocorreu um erro ao criar o arquivo PDF", "Tudo errado!", MessageBoxButton.OK);
+            }
         }
     }
 }
