@@ -1,4 +1,5 @@
-﻿using Ivana.Core;
+﻿using Ivana.Controls;
+using Ivana.Core;
 using Ivana.Data.Entities;
 using System.Linq;
 using System.Windows.Controls;
@@ -21,41 +22,13 @@ namespace Ivana.Pages.Print
             {
                 if (i < family.Count)
                 {
-                    MainStack.FindControlByName($"FullName{i + 1}", v =>
-                    {
-                        ((TextBox)v).Text = family[i].Name;
-                    });
-                    MainStack.FindControlByName($"Relationship{i + 1}", v =>
-                    {
-                        ((ComboBox)v).SelectedIndex = (int)family[i].Relationship;
-                    });
-                    MainStack.FindControlByName($"BirthDate{i + 1}", v =>
-                    {
-                        ((TextBox)v).Text = family[i].BirthDate?.ToShortDateString();
-                    });
-
-                    MainStack.FindControlByName($"Education{i + 1}", v =>
-                    {
-                        ((ComboBox)v).SelectedIndex = (int)family[i].Education;
-                    });
-                    MainStack.FindControlByName($"Gender{i + 1}", v =>
-                    {
-                        ((ComboBox)v).SelectedIndex = (int)family[i].Gender;
-                    });
+                    FamilyCompositionPrintControl familyControl = new FamilyCompositionPrintControl(family[i]);
+                    RelationshipStack.Children.Add(familyControl);
                 }
                 if (i < economic.Count)
                 {
-                    MainStack.FindControlByName($"EcnomicFullName{i + 1}", v =>
-                    {
-                        ((TextBox)v).Text = economic[i].Name;
-                    });
-                    MainStack.FindControlByName($"Income{i + 1}", v =>
-                    {
-                        ((ComboBox)v).SelectedIndex = (int)economic[i].Income;
-                    });
-                    MainStack.FindControlByName($"IncomeAmount{i + 1}", v => {
-                        ((TextBox)v).Text = economic[i].IncomeAmount.ToString("C");
-                    });
+                    EconomicSituationPrintControl economicSituationControl = new EconomicSituationPrintControl(economic[i]);
+                    EconomicStack.Children.Add(economicSituationControl);
                 }
             }
         }
